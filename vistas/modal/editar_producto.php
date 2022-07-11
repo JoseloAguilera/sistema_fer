@@ -146,7 +146,7 @@ if (isset($conexion)) {
 									<div class="col-md-4">
 										<div class="form-group">
 											<label for="mod_precio" class="control-label">Precio Venta:</label>
-											<input type="text" class="form-control" id="mod_precio" name="mod_precio" autocomplete="off" pattern="^[0-9]{1,100}?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="100">
+											<input type="text" class="form-control" id="mod_precio" name="mod_precio" autocomplete="off" pattern="^[0-9]{1,100}?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="100" onkeyup="utilidad_edit();">
 										</div>
 									</div>
 									<div class="col-md-4">

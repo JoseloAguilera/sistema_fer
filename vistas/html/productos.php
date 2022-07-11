@@ -197,11 +197,28 @@ if ($permisos_editar == 1) {
           	var precio= element.precio;
           	$("#precio").val(precio);
           });
-
-
-      }
-  })
+      		}
+  			})
 		}
+		function porcentaje_utilidad(){
+			var profit = $("#precio").val();
+			var buying_price = $("#costo").val();
+
+			var parametros = {"precio_vta":profit,"costo":buying_price};
+			$.ajax({
+				dataType: "json",
+				type:"POST",
+				url:'../ajax/utilidad.php',
+				data: parametros,
+				success:function(data){
+          //$("#datos").html(data).fadeIn('slow');
+          $.each(data, function(index, element) {
+          	var utilidad= element.utilidad;
+          	$("#utilidad").val(utilidad);
+          });
+		      }
+  			})		
+			}
 		function precio_venta_edit(){
 			var profit = $("#mod_utilidad").val();
 			var buying_price = $("#mod_costo").val();
@@ -217,6 +234,27 @@ if ($permisos_editar == 1) {
           $.each(data, function(index, element) {
           	var mod_precio= element.mod_precio;
           	$("#mod_precio").val(mod_precio);
+          });
+		}
+  			})	
+
+      }
+
+	 function utilidad_edit(){
+			var profit = $("#mod_precio").val();
+			var buying_price = $("#mod_costo").val();
+
+			var parametros = {"mod_precio_vta":profit,"mod_costo":buying_price};
+			$.ajax({
+				dataType: "json",
+				type:"POST",
+				url:'../ajax/utilidad.php',
+				data: parametros,
+				success:function(data){
+          //$("#datos").html(data).fadeIn('slow');
+          $.each(data, function(index, element) {
+          	var mod_utilidad= element.mod_utilidad;
+          	$("#mod_utilidad").val(mod_utilidad);
           });
 
 
