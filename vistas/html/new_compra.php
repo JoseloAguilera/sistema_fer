@@ -291,6 +291,10 @@ $pacientes = 1;
   })
 }
   </script>
+
+<script>
+		
+  </script>
 <?php require 'includes/footer_end.php'
 ?>
 

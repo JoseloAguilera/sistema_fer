@@ -89,6 +89,7 @@ while ($row = mysqli_fetch_array($query)) {
                             <div class="dropdown-menu dropdown-menu-right">
                                <?php if ($permisos_editar == 1) {?>
                                <a class="dropdown-item" href="abonos_cxc.php?numero_factura=<?php echo $numero_factura; ?>"><i class='fa fa-search'></i> Ver Abonos</a>
+                               <a class="dropdown-item" href="#" data-toggle="modal" data-target="#dataDelete_CXC" data-id="<?php echo $row['id_factura']; ?>"><i class='fa fa-search'></i> Borrar cta por Cobrar</a>
                                <!--<a class="dropdown-item" href="#" data-toggle="modal" data-target="#add-pago" onclick="obtener_datos('<?php echo $numero_factura; ?>');"><i class='fa fa-dollar'></i> Agregar Abono</a>-->
                                <?php }
             if ($permisos_eliminar == 1) {?>

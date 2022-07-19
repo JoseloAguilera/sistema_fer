@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 if (!isset($_SESSION['user_login_status']) and $_SESSION['user_login_status'] != 1) {
@@ -70,7 +71,8 @@ while ($r = $query->fetch_object()) {$tipo[] = $r;}
 							<div id="bg-primary" class="panel-collapse collapse show">
 								<div class="portlet-body">
 									<?php
-include "../modal/buscar_productos_ventas.php";
+	include "../modal/buscar_productos_ventas.php";
+	include "../modal/buscar_clientes_ventas.php";
     include "../modal/registro_cliente.php";
     include "../modal/registro_producto.php";
     include "../modal/caja.php";
@@ -119,15 +121,21 @@ include "../modal/buscar_productos_ventas.php";
 													<form role="form" id="datos_factura">
 														<div class="form-group row">
 															<label class="col-2 col-form-label"></label>
-															<div class="col-12">
-																<div class="input-group">
-																	<input type="text" id="nombre_cliente" class="form-control" placeholder="Buscar Cliente" required  tabindex="2">
-																	<span class="input-group-btn">
-																		<button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#nuevoCliente"><li class="fa fa-plus"></li></button>
-																	</span>
-																	<input id="id_cliente" name="id_cliente" type='hidden'>
+															
+																<div class="col-md-12">
+																	<div class="input-group">
+																		<input type="text" id="nombre_cliente" class="form-control" placeholder="Buscar Cliente" required  tabindex="2">
+																		<span class="input-group-btn">
+																			<button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#nuevoCliente"><li class="fa fa-plus"></li></button>
+																		</span>
+																		<button type="button" accesskey="a" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#buscar_cliente">
+																			<span class="fa fa-search"></span>
+																		</button>
+																		<input id="id_cliente" name="id_cliente" type='hidden'>
+																	</div>
 																</div>
-															</div>
+															
+															
 														</div>
 														<div class="row">
 															<div class="col-md-6">
