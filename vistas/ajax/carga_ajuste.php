@@ -38,11 +38,11 @@ if ($image_path == null) {
 ?>
 				<div class="text-center">
 			
-				<div class="alert alert-danger" align="center">
-						<strong>Existencia: <?php echo $stock; ?></strong>
-					</div>
+				<!--div style="margin-top: 10%;  margin-bottom: 10%;" align="center">
+						<strong  style="color: #52bb56; font-size: 150%; ">Existencia: <?php //echo $stock; ?></strong>
+					</div-->
 					<button type="button" class="btn btn-success btn-block btn-lg waves-effect waves-light" data-toggle="modal" data-target="#add-stock"><i class="fa fa-edit"></i> Agregar Stock</button>
-														<button type="button" class="btn btn-danger btn-block btn-lg waves-effect waves-light" data-toggle="modal" data-target="#remove-stock"><i class="fa fa-trash"></i> Eliminar Stock</button>
+					<button type="button" class="btn btn-danger btn-block btn-lg waves-effect waves-light" data-toggle="modal" data-target="#remove-stock"><i class="fa fa-trash"></i> Eliminar Stock</button>
 				</div>
 				
 				<div class="clearfix"></div>
@@ -96,7 +96,7 @@ if ($image_path == null) {
 					<div class="clearfix"></div>
 					<table>
 						<tr>
-							<th>Nombre de Producto: <b><?php echo $nombre; ?></b></th>
+							<th style="font-size: 135%;">Nombre de Producto: <b><?php echo $nombre; ?></b></th>
 						</tr>
 					</table>
 					<div class='outer_div'></div><!-- Carga los datos ajax -->

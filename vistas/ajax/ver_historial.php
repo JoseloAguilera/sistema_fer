@@ -45,7 +45,12 @@ if ($action == 'ajax') {
     //main query to fetch the data
     $query = mysqli_query($conexion, "SELECT $campos FROM  $tables where $sWhere LIMIT $offset,$per_page");
     //loop through fetched data
+    
+    ?><div style="margin-bottom: 1%;"> 
+        <strong  style="color: #52bb56; font-size: 150%; ">Existencia actual: <?php echo consulta_stock($id_producto); ?></strong>
+    </div>
 
+    <?php
     if ($numrows > 0) {
         ?>
 
@@ -97,5 +102,8 @@ $inicios = $offset + 1;
                     <?php
 }
 }
+
+
+
 ?>
 

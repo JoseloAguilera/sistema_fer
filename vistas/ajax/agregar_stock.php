@@ -45,6 +45,7 @@ if (empty($_POST['quantity'])) {
 
     if (isset($update)) {
         $messages[] = "El Stock  ha sido ingresado satisfactoriamente. El nuevo Stock es = ".$stock_nuevo;
+       // echo "<script> alert('El Stock ha sido ingresado satisfactoriamente. El nuevo Stock es =".$stock_nuevo." '); </script>";
         
     } else {
         if ($consulta = 1) {

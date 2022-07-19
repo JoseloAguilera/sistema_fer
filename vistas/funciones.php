@@ -274,6 +274,7 @@ function consulta_stock($id_producto){
     //var_dump($return);
     return  $return;
 }
+
 /*--------------------------------------------------------------*/
 /* Ajuste de stock DISMINUIR
 /*--------------------------------------------------------------*/
