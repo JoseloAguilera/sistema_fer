@@ -17,8 +17,13 @@ if (empty($_POST['quantity_remove'])) {
     $nota      = "eliminó $quantity producto(s) al inventario";
     $fecha     = date("Y-m-d H:i:s");
     $tipo      = 2;
-    guardar_historial($id_producto, $user_id, $fecha, $nota, $reference, $quantity, $tipo, $motivo);
-    $update = eliminar_stock($id_producto, $quantity);
+    $consulta  = consulta_inv_stock($id_producto);
+    if ($consulta != 1){
+        guardar_historial($id_producto, $user_id, $fecha, $nota, $reference, $quantity, $tipo, $motivo);
+        $update = eliminar_stock($id_producto, $quantity);
+        $stock_nuevo = consulta_stock($id_producto);
+    }
+    
 
 //GURDAMOS LAS EN EL KARDEX
     $sql_kardex  = mysqli_query($conexion, "select * from kardex where producto_kardex='" . $id_producto . "' order by id_kardex DESC LIMIT 1");
@@ -31,18 +36,28 @@ if (empty($_POST['quantity_remove'])) {
     //$nueva_cantidad = $cant_saldo - $cantidad;
     $nuevo_saldo = $cant_saldo * $costo;
     $tip         = 4;
-
-    guardar_salidas($fecha, $id_producto, $quantity, $costo, $saldo_total, $cant_saldo, $costo_saldo, $nuevo_saldo, $fecha, $user_id, $tip);
-// FIN
-
-    if ($update) {
-        $messages[] = "El Stock  ha sido Eliminado satisfactoriamente.";
-    } else {
-        $errors[] = "Lo siento algo ha salido mal intenta nuevamente." . mysqli_error($conexion);
+    if($consulta=1){
+        guardar_salidas($fecha, $id_producto, $quantity, $costo, $saldo_total, $cant_saldo, $costo_saldo, $nuevo_saldo, $fecha, $user_id, $tip);
     }
+    
+// FIN
+if (isset($update)) {
+    $messages[] = "El Stock  ha sido Eliminado satisfactoriamente. El nuevo Stock es = ".$stock_nuevo;
+     //echo "<script> alert('El Stock ha sido Eliminado satisfactoriamente. El nuevo Stock es =".$stock_nuevo." '); </script>";
+    
 } else {
-    $errors[] = "Error desconocido.";
+    if ($consulta = 1) {
+        echo "<script> alert('ERROR!!!! El Producto no maneja Stock'); </script>";
+    }else{
+        $errors[] = "Lo siento algo ha salido mal intenta nuevamente." . mysqli_error($conexion);
+    }    
 }
+} else {
+$errors[] = "Error desconocido.";
+}
+
+
+    
 
 if (isset($errors)) {
 
