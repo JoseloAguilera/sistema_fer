@@ -10,6 +10,7 @@ if (empty($_POST['quantity'])) {
     require_once "../php_conexion.php";
     require_once "../funciones.php";
     // escaping, additionally removing everything that could be (html/javascript-) code
+    //$consulta  = mysqli_query 
     $quantity  = intval($_POST['quantity']);
     $reference = mysqli_real_escape_string($conexion, (strip_tags($_POST["reference"], ENT_QUOTES)));
     $motivo    = mysqli_real_escape_string($conexion, (strip_tags($_POST["motivo"], ENT_QUOTES)));
@@ -17,8 +18,14 @@ if (empty($_POST['quantity'])) {
     $nota      = "agregó $quantity producto(s) al inventario";
     $fecha     = date("Y-m-d H:i:s");
     $tipo      = 1;
-    guardar_historial($id_producto, $user_id, $fecha, $nota, $reference, $quantity, $tipo, $motivo);
-    $update = agregar_stock($id_producto, $quantity);
+    
+    $consulta  = consulta_inv_stock($id_producto);
+    if ($consulta != 1){
+        guardar_historial($id_producto, $user_id, $fecha, $nota, $reference, $quantity, $tipo, $motivo);
+        $update = agregar_stock($id_producto, $quantity);
+        $stock_nuevo = consulta_stock($id_producto);
+    }
+   
 
     //GURDAMOS LAS ENTRADAS EN EL KARDEX
     //$costo_producto = get_row('productos', 'moneda', 'id_perfil', 1);
@@ -32,11 +39,19 @@ if (empty($_POST['quantity'])) {
     $saldo_full     = ($rww['total_saldo'] + $saldo_total);
     $costo_promedio = ($rww['total_saldo'] + $saldo_total) / $cant_saldo;
     $tip            = 3;
-    guardar_entradas($fecha, $id_producto, $quantity, $costo, $saldo_total, $cant_saldo, $costo_promedio, $saldo_full, $fecha, $user_id, $tip);
-    if ($update) {
-        $messages[] = "El Stock  ha sido ingresado satisfactoriamente.";
+    if($consulta=1){
+        guardar_entradas($fecha, $id_producto, $quantity, $costo, $saldo_total, $cant_saldo, $costo_promedio, $saldo_full, $fecha, $user_id, $tip);
+    }
+
+    if (isset($update)) {
+        $messages[] = "El Stock  ha sido ingresado satisfactoriamente. El nuevo Stock es = ".$stock_nuevo;
+        
     } else {
-        $errors[] = "Lo siento algo ha salido mal intenta nuevamente." . mysqli_error($conexion);
+        if ($consulta = 1) {
+            echo "<script> alert('ERROR!!!! El Producto no maneja Stock'); </script>";
+        }else{
+            $errors[] = "Lo siento algo ha salido mal intenta nuevamente." . mysqli_error($conexion);
+        }    
     }
 } else {
     $errors[] = "Error desconocido.";
@@ -64,9 +79,13 @@ if (isset($messages)) {
 foreach ($messages as $message) {
         echo $message;
     }
+  
     ?>
     </div>
     <?php
 }
 
+
+
 ?>
+

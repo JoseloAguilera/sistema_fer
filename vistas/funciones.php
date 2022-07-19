@@ -237,6 +237,22 @@ function guardar_historial($id_producto, $user_id, $fecha, $nota, $reference, $q
     $query = mysqli_query($conexion, $sql);
 
 }
+/*--------------------------------------------------------------*/
+/* Consulta si producto maneja stock
+/*--------------------------------------------------------------*/
+function consulta_inv_stock($id_producto)
+{
+    global $conexion;
+    $consulta2 = mysqli_query($conexion, "select inv_producto from productos where id_producto='$id_producto'");
+    $consulta2 =  mysqli_fetch_row($consulta2);
+    //var_dump($consulta2[0]);
+    return($consulta2[0]);
+    
+
+}
+/*--------------------------------------------------------------*/
+/* Ajuste de stock AGREGAR
+/*--------------------------------------------------------------*/
 function agregar_stock($id_producto, $quantity)
 {
     global $conexion;
@@ -248,6 +264,19 @@ function agregar_stock($id_producto, $quantity)
     }
 
 }
+
+function consulta_stock($id_producto){
+    
+    global $conexion;
+    $qty = mysqli_query($conexion, "select stock_producto from productos where id_producto='$id_producto'");
+    $qty = mysqli_fetch_row($qty);
+    $return = $qty[0];
+    //var_dump($return);
+    return  $return;
+}
+/*--------------------------------------------------------------*/
+/* Ajuste de stock DISMINUIR
+/*--------------------------------------------------------------*/
 function eliminar_stock($id_producto, $quantity)
 {
     global $conexion;

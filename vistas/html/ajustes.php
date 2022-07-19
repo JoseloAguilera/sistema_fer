@@ -50,7 +50,7 @@ permisos($modulo, $cadena_permisos);
 							<div class="clearfix"></div>
 						</div>
 						<?php
-include "../modal/agregar_stock.php";
+	include "../modal/agregar_stock.php";
     include "../modal/eliminar_stock.php";
     ?>
 						<div id="bg-primary" class="panel-collapse collapse show">
