@@ -36,35 +36,7 @@ function load(page) {
     })
 }
 
-function agregar_cliente(id) {
-    var id_cliente = id;
-    var parametros = {"id_cliente":id_cliente};
-    $.ajax({
-        dataType: "json",
-        type: "POST",
-        url: "../ajax/autocomplete/clientes_modal.php",
-        data: parametros,
-        success: function(data) {
-           
-            console.log(data);
-            
-        }
-    });
-     
-    /* $(function() {
-         $("#id_cliente").autocomplete({
-             source: "../ajax/autocomplete/clientes.php",
-             minLength: 2,
-             select: function(event, ui) {
-                 event.preventDefault();
-                 $('#id_cliente').val(ui.item.id_cliente);
-                 $('#nombre_cliente').val(ui.item.nombre_cliente);
-                 $('#rnc').val(ui.item.fiscal_cliente);
-                 $.Notification.notify('custom','bottom right','EXITO!', 'CLIENTE AGREGADO CORRECTAMENTE')
-             }
-         });
-     });*/
- }
+
 
 function agregar(id) {
     var precio_venta = document.getElementById('precio_venta_' + id).value;

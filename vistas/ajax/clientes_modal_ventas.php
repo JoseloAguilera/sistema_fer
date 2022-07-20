@@ -14,7 +14,7 @@ $action = (isset($_REQUEST['action']) && $_REQUEST['action'] != null) ? $_REQUES
 if ($action == 'ajax') {
     // escaping, additionally removing everything that could be (html/javascript-) code
     $t        = mysqli_real_escape_string($conexion, (strip_tags($_REQUEST['t'], ENT_QUOTES)));
-    var_dump($t);
+    //var_dump($t);
     $aColumns = array('fiscal_cliente', 'nombre_cliente'); //Columnas de busqueda
     $sTable   = "clientes";
     $sWhere   = "";
@@ -88,11 +88,10 @@ while ($row = mysqli_fetch_array($query)) {
                         <!--td class='col-xs-2' width="15%"><div class="pull-right"-->
                         <!--input type="text" class="form-control" style="text-align:center" id="nombre_cliente"  value="<?php echo $nombre_cliente; ?>" -->
                         <!--/div></td-->
-                        <input type="hidden" id="id_cliente"  value="<?php echo $id_client; ?>" >
-                        <input type="hidden" id="direccion_cliente"  value="<?php echo $direccion_cliente; ?>" >
+                        
                         
                         <td class='text-center'>
-                        <a class='btn btn-success' href="#" title="Agregar Cliente" onclick="agregar_cliente('<?php echo $id_client ?>')"><i class="fa fa-plus"></i>
+                        <a class='btn btn-success' href="#" title="Agregar Cliente" onclick="agregar_cliente('<?php echo $id_client ?>','<?php echo $nombre_cliente ?>','<?php echo $fiscal_cliente ?>')"><i class="fa fa-plus"></i>
                         </a>
                         </td>
                     </tr>

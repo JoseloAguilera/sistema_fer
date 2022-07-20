@@ -251,6 +251,20 @@ while ($r = $query->fetch_object()) {$tipo[] = $r;}
 <!-- ============================================================== -->
 <!-- Codigos Para el Auto complete de Clientes -->
 <script>
+
+function agregar_cliente(id,nombre,ruc) {
+    //var id_cliente = id;
+    //console.log(id);
+	//console.log(nombre);
+	//console.log(ruc);
+	var id_cliente = String(id);
+	$('#id_cliente').val(id_cliente);
+	$("#nombre_cliente").val(nombre);
+	$('#rnc').val(ruc);
+	$('#buscar_cliente').modal('hide');
+	$.Notification.notify('custom','bottom right','EXITO!', 'CLIENTE AGREGADO CORRECTAMENTE')
+ }
+
 	$(function() {
 		$("#nombre_cliente").autocomplete({
 			source: "../ajax/autocomplete/clientes.php",
