@@ -102,7 +102,7 @@ while ($row = mysqli_fetch_array($sql)) {
     $precio_total_f = number_format($final_items, 0, '', ''); //Precio total formateado
     //$precio_total_r = str_replace(",", "", $precio_total_f); //Reemplazo las comas
     $sumador_total += $final_items; //Sumador
-    $subtotal = $sumador_total
+    $subtotal = $sumador_total; 
     if ($row['iva_producto'] == 10) {
         //$total_iva = iva($precio_venta);
         $sub_10 += $precio_venta;
@@ -150,7 +150,7 @@ $sql1 = mysqli_query($conexion, "select * from productos where id_producto='" . 
     </tr>
     <?php
 }
-$total_factura = $subtotal + $total_impuesto;
+$total_factura = $subtotal;
 $update        = mysqli_query($conexion, "update facturas_cot set monto_factura='$total_factura' where id_factura='$id_factura'");
 
 ?>

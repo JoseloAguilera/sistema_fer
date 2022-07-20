@@ -186,17 +186,17 @@ if (empty($_POST['id_cliente'])) {
     $camb             = number_format($cambio, 0, '', '.');
     $resibido_formato = number_format($resibido, 0, '', '.');
     if ($condiciones == 4) {
-        $insert_prima = mysqli_query($conexion, "INSERT INTO creditos VALUES (NULL,'$factura','$date_added','$id_cliente','$id_vendedor','$total_factura','$saldo_credito','1','$users','1')");
-        $insert_abono = mysqli_query($conexion, "INSERT INTO creditos_abonos VALUES (NULL,'$factura','$date_added','$id_cliente','$total_factura','$resibido','$saldo_credito','$users','1','CREDITO INICAL')");
+        $insert_prima = mysqli_query($conexion, "INSERT INTO creditos VALUES (NULL,'$numero_factura','$date_added','$id_cliente','$id_vendedor','$total_factura','$saldo_credito','1','$users','1')");
+        $insert_abono = mysqli_query($conexion, "INSERT INTO creditos_abonos VALUES (NULL,'$numero_factura','$date_added','$id_cliente','$total_factura','$resibido','$saldo_credito','$users','1','CREDITO INICAL')");
     }
 
     $insert = mysqli_query($conexion, "INSERT INTO facturas_ventas VALUES (NULL,'$numero_factura','$date_added','$id_cliente','$id_vendedor','$condiciones','$total_factura','$estado','$users','$resibido','1','$id_comp','$trans')");
     // SI TODO ESTA CORRECTO
-    if ($condiciones == 4) {
+    if ($condiciones == 5) {
         echo "<script>
         swal({
           title: 'VENTA AL CREDITO GUARDADA CON EXITO CON ATICIPO DE: $simbolo_moneda $resibido_formato',
-          text: 'Factura: $factura',
+          text: 'Factura: $numero_factura',
           type: 'success',
           confirmButtonText: 'ok'
       })
@@ -252,17 +252,26 @@ foreach ($messages as $message) {
                 <h4 class="modal-title" id="myModalLabel"><i class='fa fa-edit'></i> FACTURA: <?php echo $numero_factura; ?></h4>
             </div>
             <div class="modal-body" align="center">
-                <strong><h3>CAMBIO</h3></strong>
-                <div class="alert alert-info" align="center">
+            <?php if ($condiciones == 4){ ?>
+                    <strong><h3>VENTA AL CREDITO GUARDADA CON EXITO CON ANTICIPO DE: </h3></strong>
+                    <div class="alert alert-info" align="center">
+                    <strong><h1>
+                        <?php echo $simbolo_moneda . ' ' . $resibido_formato; ?>
+
+                    </h1></strong>
+                    </div>
+                <?php }else{ ?>
+                    <strong><h3>CAMBIO</h3></strong>
+                    <div class="alert alert-info" align="center">
                     <strong><h1>
                         <?php echo $simbolo_moneda . ' ' . $camb; ?>
 
                     </h1></strong>
-                </div>
-
+                    </div>
+                    <?php } ?>
             </div>
             <div class="modal-footer">
-                <button type="button" id="imprimir" class="btn btn-primary btn-block btn-lg waves-effect waves-light" onclick="printOrder('1');" accesskey="t" ><span class="fa fa-print"></span> Ticket</button><br>
+                <!--button type="button" id="imprimir" class="btn btn-primary btn-block btn-lg waves-effect waves-light" onclick="printOrder('1');" accesskey="t" ><span class="fa fa-print"></span> Ticket</button><br-->
                 <button type="button" id="imprimir2" class="btn btn-success btn-block btn-lg waves-effect waves-light" onclick="printFactura('1');" accesskey="p"><span class="fa fa-print"></span> Factura</button>
             </div>
         </div>
