@@ -63,6 +63,7 @@ while ($row = mysqli_fetch_array($query)) {
             $fiscal_cliente  = $row['fiscal_cliente'];
             $telefono_cliente    = $row["telefono_cliente"];
             $direccion_cliente    = $row['direccion_cliente'];
+            $correo        = $row['email_cliente'];
             ?>
                     <tr>
                         <td class='text-center'>
@@ -91,7 +92,7 @@ while ($row = mysqli_fetch_array($query)) {
                         
                         
                         <td class='text-center'>
-                        <a class='btn btn-success' href="#" title="Agregar Cliente" onclick="agregar_cliente('<?php echo $id_client ?>','<?php echo $nombre_cliente ?>','<?php echo $fiscal_cliente ?>')"><i class="fa fa-plus"></i>
+                        <a class='btn btn-success' href="#" title="Agregar Cliente" onclick="agregar_cliente('<?php echo $id_client ?>','<?php echo $nombre_cliente ?>','<?php echo $fiscal_cliente ?>','<?php echo $correo ?>')"><i class="fa fa-plus"></i>
                         </a>
                         </td>
                     </tr>

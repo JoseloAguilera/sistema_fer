@@ -107,7 +107,11 @@ if (empty($_POST['codigo'])) {
     if($rww == null){
         $cant_saldo     =  $stock;
         $saldo_full     =  $saldo_total;
-        $costo_promedio =  $saldo_total / $cant_saldo;
+        if($cant_saldo == 0){
+            $costo_promedio =  $saldo_total / 1;
+        }else{
+            $costo_promedio =  $saldo_total / $cant_saldo;
+        }
         $tipo           = 5;
     }else{
         $cant_saldo     = $rww['cant_saldo'] + $stock;

@@ -90,9 +90,9 @@ if ($permisos_editar == 1) {
 																</span>
 															</button>
 															<div class="dropdown-menu">
-																<a class="dropdown-item" href="#" onclick="reporte();">
+																<!--a class="dropdown-item" href="#" onclick="reporte();">
 																	<i class='fa fa-file-pdf-o'></i> PDF
-																</a>
+																</a-->
 																<a class="dropdown-item" href="#" onclick="reporte_excel();">
 																	<i class='fa fa-file-excel-o'></i> Excel
 																</a>

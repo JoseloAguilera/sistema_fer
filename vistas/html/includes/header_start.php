@@ -19,3 +19,8 @@
 	<link href="../../assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
 	<link href="../../assets/plugins/bootstrap-sweetalert/sweet-alert.css" rel="stylesheet" type="text/css" />
 	<link href="../../assets/plugins/select2/select2.css" rel="stylesheet" type="text/css" />
+
+	<?php date_default_timezone_set('America/Asuncion');
+									$DateAndTime = date('m-d-Y h:i:s a', time());  
+									//echo "The current date and time are $DateAndTime.";
+									?>

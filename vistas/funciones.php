@@ -310,7 +310,7 @@ function guardar_entradas($fecha, $id_producto, $cant_entrada, $costo_entrada, $
 }
 function formato($valor)
 {
-    return number_format($valor, 2);
+    return number_format($valor, 0,'','.');
     //return number_format($valor, 2, '.', '.');
 }
 function iva($sin_iva)

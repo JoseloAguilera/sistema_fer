@@ -85,7 +85,7 @@ if ($image_path == null) {
 					<div class="clearfix"></div>
 					<table>
 						<tr>
-							<th>Nombre de Producto: <b><?php echo $nombre; ?></b></th>
+							<th>Nombre de Producto: <b><?php echo $nombre;  ?></b></th>
 						</tr>
 					</table>
 					<div class='outer_div'></div><!-- Carga los datos ajax -->
