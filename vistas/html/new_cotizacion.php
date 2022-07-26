@@ -221,6 +221,22 @@ $nombre_usuario = get_row('users', 'usuario_users', 'id_users', $user_id);
 <!-- ============================================================== -->
 <!-- Codigos Para el Auto complete de Clientes -->
 <script>
+
+function agregar_cliente(id,nombre,ruc, correo) {
+    //var id_cliente = id;
+    //console.log(id);
+	//console.log(nombre);
+	//console.log(ruc);
+	var id_cliente = String(id);
+	$('#id_cliente').val(id_cliente);
+	$("#nombre_cliente").val(nombre);
+	$('#tel1').val(ruc);
+	$('#em').val(correo);
+	$('#buscar_cliente').modal('hide');
+	$.Notification.notify('custom','bottom right','EXITO!', 'CLIENTE AGREGADO CORRECTAMENTE')
+ }
+
+
 	$(function() {
 		$("#nombre_cliente").autocomplete({
 			source: "../ajax/autocomplete/clientes.php",

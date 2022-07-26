@@ -39,7 +39,7 @@ if ($action == 'ajax') {
 
     }
 
-    $sWhere .= " order by nombre_producto asc";
+    $sWhere .= " order by id_producto desc";
 
     include 'pagination.php'; //include pagination file
     //pagination variables

@@ -89,7 +89,7 @@ while ($row = mysqli_fetch_array($query)) {
         <td><?php echo $nombre; ?></td>
         <td><?php echo $descripcion; ?></td>
         <td><?php echo $estado; ?></td>
-        <td >
+        <td class='text-right' >
             <div class="btn-group dropdown">
                 <button type="button" class="btn btn-warning btn-sm dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false"> <i class='fa fa-cog'></i> <i class="caret"></i> </button>
                 <div class="dropdown-menu dropdown-menu-right">

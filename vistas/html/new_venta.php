@@ -252,7 +252,7 @@ while ($r = $query->fetch_object()) {$tipo[] = $r;}
 <!-- Codigos Para el Auto complete de Clientes -->
 <script>
 
-function agregar_cliente(id,nombre,ruc) {
+function agregar_cliente(id,nombre,ruc, correo) {
     //var id_cliente = id;
     //console.log(id);
 	//console.log(nombre);

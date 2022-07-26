@@ -5,6 +5,7 @@
 	<div class="topbar-left">
 		<div class="text-center">
 			<a href="#" class="logo"><i class="mdi mdi-radar"></i> <span>AJAKA System</span></a>
+			<?php var_dump($DateAndTime); ?>
 		</div>
 	</div>
 
@@ -12,6 +13,22 @@
 	<nav class="navbar-custom">
 
 		<ul class="list-inline float-right mb-0">
+			<li class="list-inline-item notification-list hide-phone">
+				<a class="nav-link waves-light waves-effect" href="new_compra.php" >
+				<button type="button" class="btn btn-default btn-rounded dropdown-toggle waves-effect waves-light"> <i class='fa fa-shopping-bag'></i> <i class="caret"></i> COMPRA</button>	
+				</a>
+			</li>
+			<li class="list-inline-item notification-list hide-phone">
+				<a class="nav-link waves-light waves-effect" href="new_venta.php" >
+				<button type="button" class="btn btn-default btn-rounded dropdown-toggle waves-effect waves-light"> <i class='fa fa-shopping-cart'></i> <i class="caret"></i> VENTA</button>	
+				</a>
+			</li>
+			<li class="list-inline-item notification-list hide-phone">
+				<a class="nav-link waves-light waves-effect" href="new_cotizacion.php" >
+				<button type="button" class="btn btn-default btn-rounded dropdown-toggle waves-effect waves-light"> <i class='fa fa-file-text'></i> <i class="caret"></i> PRESUPUESTO</button>	
+				</a>
+			</li>
+			
 			<li class="list-inline-item notification-list hide-phone">
 				<a class="nav-link waves-light waves-effect" href="#" id="btn-fullscreen">
 					<i class="mdi mdi-crop-free noti-icon"></i>
