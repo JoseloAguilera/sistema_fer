@@ -78,7 +78,7 @@ if ($permisos_editar == 1) {
 												<div class="col-md-3">
 												<div class="input-group">
 													<select name='categoria' id='categoria' class="form-control" onchange="load(1);">
-														<option value="">-- Selecciona Linea --</option>
+														<option value="">-- Selecciona Categoría --</option>
 														<option value="">Todos</option>
 														<?php
 
