@@ -68,7 +68,7 @@ if (empty($_POST['firstname'])) {
     $query_check_user_name = mysqli_query($conexion, $sql);
     $query_check_user      = mysqli_num_rows($query_check_user_name);
     if ($query_check_user == 1) {
-        $errors[] = "Lo sentimos , el nombre de usuario ó la dirección de correo electrónico ya está en uso.";
+        $errors[] = "Lo sentimos, el nombre de usuario o la dirección de correo electrónico ya está en uso.";
     } else {
         // write new user's data into database
         $sql = "INSERT INTO users (nombre_users, apellido_users, usuario_users, con_users, email_users, cargo_users, sucursal_users, date_added)

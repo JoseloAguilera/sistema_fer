@@ -92,8 +92,8 @@ while ($row = mysqli_fetch_array($query)) {
                             <button type="button" class="btn btn-warning btn-sm dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false"> <i class='fa fa-cog'></i> <i class="caret"></i> </button>
                             <div class="dropdown-menu dropdown-menu-right">
                                <?php if ($permisos_editar == 1) {?>
-                               <a class="dropdown-item" href="editar_compra.php?id_factura=<?php echo $id_factura; ?>"><i class='fa fa-edit'></i> Editar</a>
-                               <a class="dropdown-item" href="#" onclick="printOrder('<?php echo $row['id_factura']; ?>')"><i class='fa fa-print'></i> Imprimir</a>
+                               <!--a class="dropdown-item" href="editar_compra.php?id_factura=<?php echo //$id_factura; ?>"><i class='fa fa-edit'></i> Editar</a-->
+                               <!--a class="dropdown-item" href="#" onclick="printOrder('<?php //echo $row['id_factura']; ?>')"><i class='fa fa-print'></i> Imprimir</a-->
                                <a class="dropdown-item" href="#" onclick="imprimir_factura('<?php echo $id_factura; ?>');"><i class='fa fa-download'></i> PDF</a>
                                <?php }
             if ($permisos_eliminar == 1) {?>

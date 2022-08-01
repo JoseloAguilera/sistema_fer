@@ -5,7 +5,7 @@
 	<div class="topbar-left">
 		<div class="text-center">
 			<a href="#" class="logo"><i class="mdi mdi-radar"></i> <span>AJAKA System</span></a>
-			<?php var_dump($DateAndTime); ?>
+			<?php //	var_dump($DateAndTime); ?>
 		</div>
 	</div>
 

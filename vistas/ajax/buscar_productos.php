@@ -70,7 +70,7 @@ if ($action == 'ajax') {
                 <th class='text-center'>Existencia</th>
                 <th class='text-left'>Costo</th>
                 <th class='text-left'>P. Venta</th>
-                <th class='text-left'>P. Mayoreo</th>
+                <th class='text-left'>P. Mayorista</th>
                 <th class='text-left'>P. Especial</th>
                 <th>Estado</th>
                 <th>Agregado</th>

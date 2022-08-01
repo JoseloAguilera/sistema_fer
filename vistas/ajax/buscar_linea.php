@@ -35,7 +35,7 @@ if ($action == 'ajax') {
         $sWhere = substr_replace($sWhere, "", -3);
         $sWhere .= ')';
     }
-    $sWhere .= " order by id_linea";
+    $sWhere .= " order by id_linea desc";
     include 'pagination.php'; //include pagination file
     //pagination variables
     $page      = (isset($_REQUEST['page']) && !empty($_REQUEST['page'])) ? $_REQUEST['page'] : 1;
