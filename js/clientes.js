@@ -81,7 +81,7 @@
 		    var parametros = $(this).serialize();
 		    $.ajax({
 		        type: "POST",
-		        url: "../ajax/eliminar_cliente.php",
+		        url: "../ajax/eliminar_cliente.php", //elimina el cliente
 		        data: parametros,
 		        beforeSend: function(objeto) {
 		            $(".datos_ajax_delete").html('<img src="../../img/ajax-loader.gif"> Cargando...');

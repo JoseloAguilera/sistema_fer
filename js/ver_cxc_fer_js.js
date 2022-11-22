@@ -12,7 +12,7 @@ function load(page) {
     };
     $("#loader").fadeIn('slow');
     $.ajax({
-        url: '../ajax/ver_cxc.php',
+        url: '../ajax/ver_cxc_fer_ajax.php',
         data: parametros,
         beforeSend: function(objeto) {
             $("#loader").html("<img src='../../img/ajax-loader.gif'>");
@@ -30,7 +30,6 @@ $('#dataDelete_abono').on('show.bs.modal', function(event) {
     //console.log(id);
     var modal = $(this)
     modal.find('#id_abono').val(id)
-    
 })
 $("#eliminarDatos").submit(function(event) {
     var parametros = $(this).serialize();
@@ -44,15 +43,15 @@ $("#eliminarDatos").submit(function(event) {
         success: function(datos) {
             $("#se_elimino").html(datos);
             $('#dataDelete_abono').modal('hide');
-            
-            //load(1);
+            window.location.reload();
+            //load("../ajax/ver_cxc.php");
             //desaparecer la alerta
-            $(".alert-success").delay(400).show(10, function() {
+            /*$(".alert-success").delay(400).show(10, function() {
                 $(this).delay(2000).hide(10, function() {
                     $(this).remove();
                 });
-            }); // /.alert
-            /*window.setTimeout(function() {
+            }); // /.alert*/
+           /* window.setTimeout(function() {
                 $(".alert").fadeTo(200, 0).slideUp(200, function() {
                     $(this).remove();
                 });
@@ -60,7 +59,6 @@ $("#eliminarDatos").submit(function(event) {
             
         }
     });
-    window.location.reload();
     event.preventDefault();
 });
 

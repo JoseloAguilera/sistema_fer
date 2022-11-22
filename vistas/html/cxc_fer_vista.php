@@ -35,13 +35,12 @@ $ventas = 1;
 		<div class="content">
 			<div class="container">
 <?php if ($permisos_ver == 1) {
-    include "../modal/ver_datos.php";
     ?>
 				<div class="col-lg-12">
 					<div class="portlet">
 						<div class="portlet-heading bg-primary">
 							<h3 class="portlet-title">
-								Cuentas por Cobrar	
+								Listado de Abonos
 							</h3>
 							<div class="portlet-widgets">
 								<a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
@@ -54,6 +53,10 @@ $ventas = 1;
 						</div>
 						<div id="bg-primary" class="panel-collapse collapse show">
 							<div class="portlet-body">
+							<?php
+include "../modal/eliminar_abono.php";
+    ?>
+
 								<form class="form-horizontal" role="form" id="datos_cotizacion">
 									<div class="form-group row">
 										<div class="col-md-6">
@@ -71,8 +74,7 @@ $ventas = 1;
 
 										</div>
 									</form>
-									<div id="resultados_ajax"></div>
-									<!--div class="datos_ajax_delete"></div><!-- Datos ajax Final -->
+									<div class="datos_ajax_delete"></div><!-- Datos ajax Final -->
 									<div class='outer_div'></div><!-- Carga los datos ajax -->
 
 
@@ -116,22 +118,7 @@ $ventas = 1;
 	<!-- Todo el codigo js aqui-->
 	<!-- ============================================================== -->
 	<script type="text/javascript" src="../../js/VentanaCentrada.js"></script>
-	<script type="text/javascript" src="../../js/cxc.js"></script>
-	<script>
-	$(document).ready( function () {
-		$(".UpperCase").on("keypress", function () {
-			$input=$(this);
-			setTimeout(function () {
-				$input.val($input.val().toUpperCase());
-			},50);
-		})
-	})
-</script>
-	<script>
-		function obtener_datos(numero_factura) {
-			$(".outer_datos").load("../modal/datos.php?numero_factura=" + numero_factura);
-		}
-	</script>
+	<script type="text/javascript" src="../../js/ver_cxc_fer_js.js"></script>
 
 	<?php require 'includes/footer_end.php'
 ?>

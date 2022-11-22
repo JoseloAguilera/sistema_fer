@@ -1,6 +1,6 @@
 <?php
 include "is_logged.php"; //Archivo comprueba si el usuario esta logueado
-$numero_factura = $_SESSION['numero_factura'];
+$numero_factura = '';
 /* Connect To Database*/
 require_once "../db.php";
 require_once "../php_conexion.php";
@@ -16,7 +16,7 @@ if ($action == 'ajax') {
    // $daterange = mysqli_real_escape_string($conexion, (strip_tags($_REQUEST['range'], ENT_QUOTES)));
     $tables    = "creditos_abonos";
     $campos    = "*";
-    $sWhere    = "numero_factura =  '".$numero_factura."'";
+    $sWhere    = "numero_factura";
     if (!empty($daterange)) {
         list($f_inicio, $f_final)                    = explode(" - ", $daterange); //Extrae la fecha inicial y la fecha final en formato espa?ol
         list($dia_inicio, $mes_inicio, $anio_inicio) = explode("/", $f_inicio); //Extrae fecha inicial
@@ -38,11 +38,11 @@ if ($action == 'ajax') {
     $count_query = mysqli_query($conexion, "SELECT count(*) AS numrows FROM $tables where $sWhere ");
     if ($row = mysqli_fetch_array($count_query)) {$numrows = $row['numrows'];} else {echo mysqli_error($conexion);}
     $total_pages = ceil($numrows / $per_page);
-    $reload      = '../ver_cxc.php';
+    $reload      = '../ver_cxc_fer_ajax.php';
     //main query to fetch the data
     $query = mysqli_query($conexion, "SELECT $campos FROM  $tables where $sWhere LIMIT $offset,$per_page");
     //loop through fetched data
-    //include '../modal/eliminar_abono.php';
+    include '../modal/eliminar_abono.php';
     if ($numrows > 0) {
         ?>
 
@@ -50,7 +50,7 @@ if ($action == 'ajax') {
             <table class="table table-sm table table-condensed table-hover table-striped ">
                 <tr>
                     <th>Factura</th>
-                    <th>Cliente</th>
+                    <th>Clientes</th>
                     <th>Fecha</th>
                     <th>Crédito</th>
                     <th>Abonos</th>
@@ -85,7 +85,9 @@ $finales = 0;
                         </div>
         </td>
                     </tr>
+                    <?php$reload      = '../ver_cxc_fer_ajax.php';?>
                     <?php }?>
+                    
                 </table>
             </div>
 

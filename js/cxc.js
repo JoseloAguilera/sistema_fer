@@ -19,17 +19,18 @@
 				}
 			})
 		}
-		$('#dataDelete').on('show.bs.modal', function(event) {
+		/*$('#dataDelete_abono').on('show.bs.modal', function(event) {
 		    var button = $(event.relatedTarget) // Botón que activó el modal
 		    var id = button.data('id') // Extraer la información de atributos de datos
 		    var modal = $(this)
-		    modal.find('#id_factura').val(id)
+		    modal.find('#id_abono').val(id)
+			alert(id)
 		})
 		$("#eliminarDatos").submit(function(event) {
 			var parametros = $(this).serialize();
 			$.ajax({
 				type: "POST",
-				url: "../ajax/eliminar_factura.php",
+				url: "../ajax/eliminar_abono.php", //ver si esta el archivo
 				data: parametros,
 				beforeSend: function(objeto) {
 					$(".datos_ajax_delete").html('<img src="../../img/ajax-loader.gif"> Cargando...');
@@ -47,7 +48,7 @@
 		        }
 		    });
 			event.preventDefault();
-		});
+		});*/
 
 $("#add_abono").submit(function(event) {
 $('#guardar_datos').attr("disabled", true);

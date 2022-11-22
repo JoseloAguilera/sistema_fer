@@ -137,6 +137,7 @@
 												<ul class="list-unstyled">
 													<li><a href="../html/cxc.php">Abono Cliente</a></li>
 													<li><a href="../html/cxp.php">Abono Proveedor</a></li>
+													<li><a href="../html/cxc_fer_vista.php">Abono Clientes Fer</a></li>
 												</ul>
 											</li>
 
